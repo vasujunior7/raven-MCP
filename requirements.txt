@@ -1,0 +1,14 @@
+# MCP Server Dependencies
+# Core HTTP and async functionality
+aiohttp>=3.8.0
+
+# Data processing and validation
+pyyaml>=6.0
+python-dateutil>=2.8.0
+
+# LLM Integration
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# Logging and monitoring
+colorama>=0.4.6

@@ -1,0 +1,49 @@
+# Category definitions for MCP Server
+# This file defines the main categories used for event classification
+
+categories:
+  politics:
+    description: "Political events, elections, policy decisions"
+    keywords: ["election", "vote", "president", "congress", "senate", "policy"]
+    color: "#FF6B6B"
+
+  sports:
+    description: "Sports events, games, championships"
+    keywords: ["game", "match", "championship", "team", "player", "season"]
+    color: "#4ECDC4"
+
+  crypto:
+    description: "Cryptocurrency, blockchain, DeFi events"
+    keywords: ["bitcoin", "ethereum", "blockchain", "defi", "crypto"]
+    color: "#45B7D1"
+
+  technology:
+    description: "Technology, AI, software developments"
+    keywords: ["ai", "tech", "software", "innovation", "startup"]
+    color: "#96CEB4"
+
+  environment:
+    description: "Climate, environmental, sustainability events"
+    keywords: ["climate", "environment", "carbon", "renewable", "green"]
+    color: "#FFEAA7"
+
+  economics:
+    description: "Economic events, market predictions, finance"
+    keywords: ["economy", "market", "finance", "recession", "inflation"]
+    color: "#DDA0DD"
+
+  healthcare:
+    description: "Health, medical, pharmaceutical events"
+    keywords: ["health", "medicine", "vaccine", "disease", "medical"]
+    color: "#98D8C8"
+
+  general:
+    description: "General events that don't fit other categories"
+    keywords: []
+    color: "#95A5A6"
+
+# Default settings for categories
+defaults:
+  fallback_category: "general"
+  auto_categorize: true
+  confidence_threshold: 0.7

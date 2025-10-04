@@ -1,0 +1,32 @@
+{
+  "default_limit": 5,
+  "max_limit": 50,
+  "default_tool": "get_events",
+  "default_category": "general",
+  "timeout": 30,
+  "max_retries": 3,
+  "api_settings": {
+    "polymarket": {
+      "base_url": "https://gamma-api.polymarket.com",
+      "timeout": 30,
+      "rate_limit": 100
+    }
+  },
+  "response_format": {
+    "include_metadata": true,
+    "include_source": true,
+    "include_tags": true,
+    "date_format": "iso"
+  },
+  "filtering": {
+    "enable_keyword_filter": true,
+    "enable_time_filter": true,
+    "enable_volume_filter": false,
+    "min_volume_threshold": 0
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "logs/mcp_server.log"
+  }
+}
