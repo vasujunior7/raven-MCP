@@ -97,6 +97,8 @@ class QueryParser:
         # Extract parameters based on tool type
         if tool == "get_events":
             params = self._parse_get_events(query_lower)
+        elif tool == "get_crypto_sentiment":
+            params = self._parse_get_crypto_sentiment(query_lower)
         else:
             params = self._parse_generic(query_lower)
         
@@ -108,7 +110,21 @@ class QueryParser:
     
     def _infer_tool(self, query: str) -> str:
         """Infer the appropriate tool based on query content."""
-        # Simple rule-based tool inference
+        # Cryptocurrency/sentiment related queries -> LunarCrush
+        crypto_keywords = [
+            "crypto", "cryptocurrency", "bitcoin", "ethereum", "altcoin", "sentiment", 
+            "trending", "coins", "market cap", "social", "buzz", "influence"
+        ]
+        
+        if any(keyword in query for keyword in crypto_keywords):
+            return "get_crypto_sentiment"
+        
+        # Market/prediction related queries -> Polymarket
+        market_keywords = ["event", "prediction", "market", "bet", "odds", "election"]
+        if any(keyword in query for keyword in market_keywords):
+            return "get_events"
+        
+        # Default fallback for general queries
         if any(word in query for word in ["fetch", "get", "show", "find", "list"]):
             return "get_events"
         
@@ -128,6 +144,28 @@ class QueryParser:
         time_filter = self._extract_time_filter(query)
         if time_filter:
             params["time_filter"] = time_filter
+        
+        return params
+    
+    def _parse_get_crypto_sentiment(self, query: str) -> Dict[str, Any]:
+        """Parse parameters specific to get_crypto_sentiment tool."""
+        params = {}
+        
+        # Extract limit/count
+        params["limit"] = self._extract_limit(query)
+        
+        # Extract sort type
+        if "trending" in query:
+            params["sort"] = "gs"  # Galaxy Score (trending)
+        elif "market cap" in query or "cap" in query:
+            params["sort"] = "mc"  # Market Cap
+        elif "volume" in query:
+            params["sort"] = "v"   # Volume
+        else:
+            params["sort"] = "gs"  # Default to trending
+        
+        # Extract category/keyword
+        params["keyword"] = self._extract_keyword(query)
         
         return params
     

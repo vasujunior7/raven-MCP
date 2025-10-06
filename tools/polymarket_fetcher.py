@@ -7,6 +7,8 @@ import aiohttp
 import json
 from datetime import datetime
 
+from core.cache_manager import cache_manager, CacheNode
+
 logger = logging.getLogger(__name__)
 
 class PolymarketFetcher:
@@ -29,7 +31,12 @@ class PolymarketFetcher:
     
     async def execute(self, params: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
-        Execute the Polymarket events fetch.
+        Execute the Polymarket events fetch with subgraph result caching.
+        
+        Implements: Graph/Subquery Cache (JSON Hashmap)
+        - Hashes query + params for cache key
+        - 10-15 minute TTL for market data
+        - Full JSON response caching
         
         Args:
             params: Parsed parameters including keyword, limit, etc.
@@ -39,13 +46,45 @@ class PolymarketFetcher:
         """
         keyword = params.get('keyword', 'general')
         limit = params.get('limit', 5)
+        time_filter = params.get('time_filter', 'all')
+        
+        # Create subgraph result cache key following your specification
+        # Format: polymarket::{market_id}::{query_hash}
+        import hashlib
+        query_params = f"keyword={keyword}&limit={limit}&time_filter={time_filter}"
+        query_hash = hashlib.md5(query_params.encode()).hexdigest()[:8]
+        
+        # Polymarket subgraph cache key structure
+        cache_key = f"polymarket::event:{keyword}::{query_hash}"
         
         logger.info(f"Fetching Polymarket events: keyword='{keyword}', limit={limit}")
+        logger.info(f"🔑 Subgraph cache key: {cache_key}")
+        
+        # STEP 0: Check subgraph result cache first
+        cached_node = cache_manager.get(cache_key)
+        if cached_node and cached_node.polymarket_data:
+            logger.info(f"💾 SUBGRAPH CACHE HIT: Returning cached Polymarket data (expires in {cached_node.time_until_expiry():.1f}s)")
+            return cached_node.polymarket_data.get('events', [])
         
         # For development/demo purposes, use mock data
         # In production, this would attempt real API calls first
         logger.info("Using mock data for demonstration")
-        return self._get_mock_data(keyword, limit)
+        events_data = self._get_mock_data(keyword, limit)
+        
+        # Store in subgraph result cache with 10-15 minute TTL
+        cache_manager.create_and_store(
+            prompt=cache_key,
+            ttl_seconds=900,  # 15 minutes for Polymarket subgraph data
+            polymarket_data={
+                "events": events_data, 
+                "source": "mock", 
+                "keyword": keyword,
+                "cache_type": "subgraph_result",
+                "query_hash": query_hash
+            }
+        )
+        
+        return events_data
     
     async def _fetch_events(self, limit: int) -> List[Dict[str, Any]]:
         """Fetch events from Polymarket API."""

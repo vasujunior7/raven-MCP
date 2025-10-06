@@ -68,7 +68,23 @@ class ResponseProcessor:
         cleaned['endDate'] = self._clean_date(result.get('endDate', result.get('end_date', result.get('deadline'))))
         
         # Numeric fields
-        cleaned['volume'] = self._clean_number(result.get('volume', result.get('trading_volume', 0)))
+        cleaned['volume'] = self._clean_number(result.get('volume', result.get('trading_volume', result.get('volume_24h', 0))))
+        
+        # Crypto-specific fields (for LunarCrush data)
+        if 'symbol' in result:
+            cleaned['symbol'] = self._clean_string(result.get('symbol'))
+        if 'price' in result:
+            cleaned['price'] = self._clean_number(result.get('price'))
+        if 'market_cap' in result:
+            cleaned['market_cap'] = self._clean_number(result.get('market_cap'))
+        if 'percent_change_24h' in result:
+            cleaned['percent_change_24h'] = self._clean_number(result.get('percent_change_24h'))
+        if 'galaxy_score' in result:
+            cleaned['galaxy_score'] = self._clean_number(result.get('galaxy_score'))
+        if 'sentiment' in result:
+            cleaned['sentiment'] = self._clean_string(result.get('sentiment'))
+        if 'alt_rank' in result:
+            cleaned['alt_rank'] = self._clean_number(result.get('alt_rank'))
         
         # URL handling
         if result.get('url'):
@@ -196,11 +212,17 @@ class ResponseProcessor:
     def _enrich_metadata(self, results: List[Dict[str, Any]], parsed_params: Dict[str, Any]) -> List[Dict[str, Any]]:
         """Enrich results with additional metadata and tags."""
         keyword = parsed_params.get('keyword', 'general')
+        tool_name = parsed_params.get('tool', 'unknown')
         
         for result in results:
-            # Add source metadata
+            # Add source metadata based on the tool that generated the data
             if 'source' not in result:
-                result['source'] = 'polymarket'
+                if tool_name == 'get_crypto_sentiment':
+                    result['source'] = 'lunarcrush'
+                elif tool_name == 'get_events':
+                    result['source'] = 'polymarket'
+                else:
+                    result['source'] = 'unknown'
             
             # Generate tags based on content and keyword
             tags = self._generate_tags(result, keyword)

@@ -58,6 +58,10 @@ class HTTPClient:
             await self.session.close()
             logger.debug("HTTP session closed")
     
+    async def close(self):
+        """Alias for close_session for consistency."""
+        await self.close_session()
+    
     async def get(self, url: str, params: Optional[Dict[str, Any]] = None, 
                   headers: Optional[Dict[str, str]] = None) -> Dict[str, Any]:
         """
