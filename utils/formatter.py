@@ -140,6 +140,32 @@ class ResponseFormatter:
             card_lines.append(f"━━━ Result {i} ━━━")
             card_lines.append(f"Title: {result.get('title', 'Untitled')}")
             
+            # Crypto-specific card formatting
+            if result.get('symbol'):
+                card_lines.append(f"Symbol: {result['symbol']}")
+            
+            if result.get('price'):
+                formatted_price = self._format_cell_value(result['price'], 'price')
+                card_lines.append(f"Price: {formatted_price}")
+            
+            if result.get('market_cap'):
+                formatted_mcap = self._format_cell_value(result['market_cap'], 'market_cap')
+                card_lines.append(f"Market Cap: {formatted_mcap}")
+            
+            if result.get('galaxy_score'):
+                formatted_score = self._format_cell_value(result['galaxy_score'], 'galaxy_score')
+                card_lines.append(f"Galaxy Score: {formatted_score}")
+            
+            if result.get('sentiment'):
+                formatted_sentiment = self._format_cell_value(result['sentiment'], 'sentiment')
+                card_lines.append(f"Sentiment: {formatted_sentiment}")
+            
+            if result.get('percent_change_24h'):
+                change = result['percent_change_24h']
+                change_emoji = "📈" if change >= 0 else "📉"
+                card_lines.append(f"24h Change: {change_emoji} {change:+.2f}%")
+            
+            # Standard fields for non-crypto data
             if result.get('endDate'):
                 formatted_date = self._format_date(result['endDate'])
                 card_lines.append(f"End Date: {formatted_date}")
@@ -163,8 +189,20 @@ class ResponseFormatter:
     
     def _get_display_columns(self, results: List[Dict[str, Any]]) -> List[str]:
         """Determine which columns to display based on available data."""
-        # Default priority order
-        priority_columns = ['title', 'endDate', 'volume', 'tags']
+        if not results:
+            return []
+        
+        # Check what kind of data we have
+        first_result = results[0]
+        
+        # Crypto/LunarCrush data detection
+        crypto_fields = ['symbol', 'price', 'galaxy_score', 'sentiment', 'market_cap']
+        if any(field in first_result for field in crypto_fields):
+            # This is crypto sentiment data - show crypto-specific columns
+            priority_columns = ['title', 'symbol', 'price', 'galaxy_score', 'sentiment', 'market_cap']
+        else:
+            # Default columns for markets/events
+            priority_columns = ['title', 'endDate', 'volume', 'tags']
         
         # Find available columns
         all_columns = set()
@@ -179,10 +217,10 @@ class ResponseFormatter:
         
         # Add other important columns
         for col in ['url', 'description']:
-            if col in all_columns and col not in display_columns:
+            if col in all_columns and col not in display_columns and len(display_columns) < 6:
                 display_columns.append(col)
         
-        return display_columns[:4]  # Limit to 4 columns for readability
+        return display_columns[:6]  # Limit to 6 columns for crypto data
     
     def _calculate_column_widths(self, results: List[Dict[str, Any]], 
                                 columns: List[str], max_width: int) -> Dict[str, int]:
@@ -217,7 +255,39 @@ class ResponseFormatter:
         if value is None:
             return ""
         
-        if column == 'volume':
+        # Crypto-specific formatting
+        if column == 'price':
+            try:
+                price = float(value)
+                if price >= 1:
+                    return f"${price:,.2f}"
+                else:
+                    return f"${price:.4f}"
+            except (ValueError, TypeError):
+                return str(value)
+        elif column == 'galaxy_score':
+            try:
+                score = float(value)
+                return f"{score:.1f}⭐"
+            except (ValueError, TypeError):
+                return str(value)
+        elif column == 'market_cap':
+            return self._format_number(value, prefix="$")
+        elif column == 'sentiment':
+            # Add emoji to sentiment
+            sentiment_str = str(value).lower()
+            if 'bullish' in sentiment_str:
+                return f"📈 {value}"
+            elif 'bearish' in sentiment_str:
+                return f"📉 {value}"
+            elif 'neutral' in sentiment_str:
+                return f"➖ {value}"
+            else:
+                return str(value)
+        elif column == 'symbol':
+            return f"({value})"
+        # Generic formatting
+        elif column == 'volume':
             return self._format_number(value)
         elif column == 'endDate':
             return self._format_date(value)
@@ -226,16 +296,18 @@ class ResponseFormatter:
         else:
             return str(value)
     
-    def _format_number(self, value: Any) -> str:
+    def _format_number(self, value: Any, prefix: str = "") -> str:
         """Format numeric values with appropriate units."""
         try:
             num = float(value)
-            if num >= 1_000_000:
-                return f"{num/1_000_000:.1f}M"
+            if num >= 1_000_000_000:
+                return f"{prefix}{num/1_000_000_000:.1f}B"
+            elif num >= 1_000_000:
+                return f"{prefix}{num/1_000_000:.1f}M"
             elif num >= 1_000:
-                return f"{num/1_000:.1f}K"
+                return f"{prefix}{num/1_000:.1f}K"
             else:
-                return f"{num:.0f}"
+                return f"{prefix}{num:.0f}"
         except (ValueError, TypeError):
             return str(value)
     

@@ -3,10 +3,12 @@
 import json
 import logging
 import hashlib
+import os
 from datetime import datetime, timedelta
 from typing import Dict, Any, List, Optional, Union
 from dataclasses import dataclass, asdict
 import time
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
@@ -74,16 +76,19 @@ class MCPCacheManager:
     - Automatic cleanup of expired entries
     """
     
-    def __init__(self, default_ttl: int = 300, max_cache_size: int = 1000):
+    def __init__(self, default_ttl: int = 300, max_cache_size: int = 1000, 
+                 persistent_file: str = "cache_data.json"):
         """
         Initialize cache manager.
         
         Args:
             default_ttl: Default time to live in seconds
             max_cache_size: Maximum number of cache entries
+            persistent_file: JSON file to persist cache data
         """
         self.default_ttl = default_ttl
         self.max_cache_size = max_cache_size
+        self.persistent_file = Path(persistent_file)
         
         # In-memory cache storage
         self.cache: Dict[str, CacheNode] = {}
@@ -97,7 +102,11 @@ class MCPCacheManager:
             "cache_size": 0
         }
         
-        logger.info(f"MCPCacheManager initialized: TTL={default_ttl}s, Max size={max_cache_size}")
+        # Load existing cache from file
+        self._load_from_file()
+        
+        logger.info(f"MCPCacheManager initialized: TTL={default_ttl}s, Max size={max_cache_size}, File={persistent_file}")
+        logger.info(f"📂 Loaded {len(self.cache)} cache entries from persistent storage")
     
     def generate_cache_key(self, prompt: str, data_types: List[str] = None, **kwargs) -> str:
         """
@@ -157,7 +166,7 @@ class MCPCacheManager:
         
         # Cache hit
         self.stats["hits"] += 1
-        logger.info(f"Cache HIT: {cache_key} (expires in {node.time_until_expiry():.1f}s)")
+        logger.info(f"🎯 Cache HIT: {cache_key} (expires in {node.time_until_expiry():.1f}s)")
         return node
     
     def put(self, cache_key: str, node: CacheNode) -> bool:
@@ -178,7 +187,11 @@ class MCPCacheManager:
         self.cache[cache_key] = node
         self.stats["cache_size"] = len(self.cache)
         
-        logger.info(f"Cache STORE: {cache_key} (TTL: {node.ttl_seconds}s)")
+        logger.info(f"💾 Cache STORE: {cache_key} (TTL: {node.ttl_seconds}s)")
+        
+        # Save to persistent file
+        self._save_to_file()
+        
         return True
     
     def create_and_store(self, prompt: str, ttl_seconds: Optional[int] = None, **data) -> str:
@@ -317,6 +330,82 @@ class MCPCacheManager:
             entries.append(entry_info)
         
         return entries
+    
+    def _load_from_file(self):
+        """Load cache data from persistent JSON file."""
+        if not self.persistent_file.exists():
+            logger.debug(f"Cache file {self.persistent_file} does not exist, starting with empty cache")
+            return
+        
+        try:
+            with open(self.persistent_file, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+            
+            # Reconstruct cache nodes from JSON data
+            loaded_count = 0
+            expired_count = 0
+            
+            for key, node_data in cache_data.items():
+                # Create cache node from saved data
+                node = CacheNode(
+                    key=node_data.get('key', key),
+                    prompt=node_data.get('prompt', ''),
+                    lunarcrush_data=node_data.get('lunarcrush_data'),
+                    polymarket_data=node_data.get('polymarket_data'),
+                    derived_data=node_data.get('derived_data'),
+                    ttl_seconds=node_data.get('ttl_seconds', self.default_ttl),
+                    timestamp=node_data.get('timestamp', ''),
+                    expires_at=node_data.get('expires_at', '')
+                )
+                
+                # Only load non-expired entries
+                if not node.is_expired():
+                    self.cache[key] = node
+                    loaded_count += 1
+                else:
+                    expired_count += 1
+            
+            logger.info(f"💾 Loaded {loaded_count} valid cache entries, skipped {expired_count} expired entries")
+            
+        except Exception as e:
+            logger.error(f"Failed to load cache from {self.persistent_file}: {e}")
+    
+    def _save_to_file(self):
+        """Save current cache to persistent JSON file."""
+        try:
+            # Convert cache nodes to JSON-serializable format
+            cache_data = {}
+            
+            for key, node in self.cache.items():
+                # Skip expired entries
+                if node.is_expired():
+                    continue
+                
+                cache_data[key] = {
+                    'key': node.key,
+                    'prompt': node.prompt,
+                    'lunarcrush_data': node.lunarcrush_data,
+                    'polymarket_data': node.polymarket_data,
+                    'derived_data': node.derived_data,
+                    'ttl_seconds': node.ttl_seconds,
+                    'timestamp': node.timestamp,
+                    'expires_at': node.expires_at
+                }
+            
+            # Write to file with proper formatting
+            with open(self.persistent_file, 'w', encoding='utf-8') as f:
+                json.dump(cache_data, f, indent=2, ensure_ascii=False)
+            
+            logger.debug(f"💾 Saved {len(cache_data)} cache entries to {self.persistent_file}")
+            
+        except Exception as e:
+            logger.error(f"Failed to save cache to {self.persistent_file}: {e}")
+    
+    def shutdown(self):
+        """Save cache and cleanup before shutdown."""
+        logger.info("🔄 Shutting down cache manager, saving to persistent storage...")
+        self._save_to_file()
+        self.cache.clear()
 
 # Global cache manager instance
 cache_manager = MCPCacheManager(default_ttl=300, max_cache_size=1000)

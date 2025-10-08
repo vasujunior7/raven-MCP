@@ -1,0 +1,528 @@
+{
+  "30e2728b4080e394": {
+    "key": "30e2728b4080e394",
+    "prompt": "polymarket::event:sports::46147851",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [
+        {
+          "title": "NBA: Will the Mavericks beat the Grizzlies by more than 5.5 points in their December 4 matchup?",
+          "description": "In the upcoming NBA game, scheduled for December 4:\n\nIf the Dallas Mavericks win by over 5.5 points, the market will resolve to “Yes”.\n\nIf the Memphis Grizzlies lose by less than 5.5 points or win, the market will resolve “No.” \n\nIf the game is not completed by December 11, 2021, the market will resolve 50-50.",
+          "endDate": "2021-12-04T00:00:00Z",
+          "volume": 1335.05,
+          "url": "https://polymarket.com/event/nba-will-the-mavericks-beat-the-grizzlies-by-more-than-5pt5-points-in-their-december-4-matchup",
+          "marketSlug": "nba-will-the-mavericks-beat-the-grizzlies-by-more-than-5pt5-points-in-their-december-4-matchup",
+          "id": "2890",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        },
+        {
+          "title": "NFL: Will the Falcons beat the Panthers by more than 3.5 points in their October 31st matchup?",
+          "description": "In the upcoming NFL game:\n\nIf the Atlanta Falcons win by over 3.5 points, the market will resolve to “Yes”.\n\nIf the Carolina Panthers lose by less than 3.5 points or win, the market will resolve “No.” \n\nIf the game is not completed by November 6, 2021, the market will resolve 50-50.",
+          "endDate": "2021-10-31T00:00:00Z",
+          "volume": 5332.42,
+          "url": "https://polymarket.com/event/nfl-will-the-falcons-beat-the-panthers-by-more-than-3pt5-points-in-their-october-31st-matchup",
+          "marketSlug": "nfl-will-the-falcons-beat-the-panthers-by-more-than-3pt5-points-in-their-october-31st-matchup",
+          "id": "2891",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        },
+        {
+          "title": "(In-Game Trading) Will the 49ers beat the Packers by more than 3.5 points in their week three matchup?",
+          "description": "This is a market on whether the San Francisco 49ers will beat the Green Bay Packers by over 3.5 points in their NFL week three matchup scheduled to take place on September 26, 2021, at 8:20 PM ET. This market will resolve to “Yes” if the 49ers win by over 3.5 points, and “No” if the Packers lose by less than 3.5 points or win. If the match is postponed to a date on or before October 26, 2021, the same market conditions will apply. If the match is postponed to a date after October 26, 2021, or canceled altogether, the market will resolve 55-45 in favor of “No”.",
+          "endDate": "2021-09-26T00:00:00Z",
+          "volume": 139186.36,
+          "url": "https://polymarket.com/event/in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "marketSlug": "in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "id": "2892",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        }
+      ],
+      "source": "api",
+      "keyword": "sports",
+      "cache_type": "subgraph_result",
+      "query_hash": "46147851"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:40:06.791546",
+    "expires_at": "2025-10-08T16:55:06.791546"
+  },
+  "24e8a05fe3e57259": {
+    "key": "24e8a05fe3e57259",
+    "prompt": "polymarket::event:politics::b47d9cf8",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [
+        {
+          "title": "Will Joe Biden get Coronavirus before the election?",
+          "description": "This is a market on if presidential candidate Joe Biden will test positive for COVID-19 before November 3rd, 2020. This will be defined as Joe publicly announcing - via any medium, including social media - that he has tested positive for COVID-19, or some variation of that statement. If it is in reference to antibodies, or he doesn’t publicly acknowledge it, the market will resolve to No.\nIn the event of ambiguity in terms of the market outcome, the market will be resolved at the sole discretion of the Markets Integrity Committee (MIC).",
+          "endDate": "2020-11-04T00:00:00Z",
+          "volume": 32257.445115,
+          "url": "https://polymarket.com/market/will-joe-biden-get-coronavirus-before-the-election",
+          "marketSlug": "will-joe-biden-get-coronavirus-before-the-election",
+          "id": "12",
+          "tags": [],
+          "source": "polymarket"
+        },
+        {
+          "title": "Will a new Supreme Court Justice be confirmed before Nov 3rd, 2020?",
+          "description": "This is a market on whether or not a new Supreme Court Justice will be both nominated and confirmed before Nov 3rd, 2020. Nominated and Confirmed, in the context of the Supreme Court, are defined here: https://en.wikipedia.org/wiki/Appointment_and_confirmation_to_the_Supreme_Court_of_the_United_States. If a Supreme Court Justice is Nominated but not Confirmed before the election, the market will resolve to “No”. RIP RBG. In the event of ambiguity in terms of the market outcome, the market will be resolved at the sole discretion of the Markets Integrity Committee (MIC).",
+          "endDate": "2020-11-04T00:00:00Z",
+          "volume": 43279.456005,
+          "url": "https://polymarket.com/market/will-a-new-supreme-court-justice-be-confirmed-before-nov-3rd-2020",
+          "marketSlug": "will-a-new-supreme-court-justice-be-confirmed-before-nov-3rd-2020",
+          "id": "18",
+          "tags": [],
+          "source": "polymarket"
+        }
+      ],
+      "source": "api",
+      "keyword": "politics",
+      "cache_type": "subgraph_result",
+      "query_hash": "b47d9cf8"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:38:33.616041",
+    "expires_at": "2025-10-08T16:53:33.616041"
+  },
+  "327f323a191444a1": {
+    "key": "327f323a191444a1",
+    "prompt": "polymarket::event:crypto::27905317",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [
+        {
+          "title": "(In-Game Trading) Will the 49ers beat the Packers by more than 3.5 points in their week three matchup?",
+          "description": "This is a market on whether the San Francisco 49ers will beat the Green Bay Packers by over 3.5 points in their NFL week three matchup scheduled to take place on September 26, 2021, at 8:20 PM ET. This market will resolve to “Yes” if the 49ers win by over 3.5 points, and “No” if the Packers lose by less than 3.5 points or win. If the match is postponed to a date on or before October 26, 2021, the same market conditions will apply. If the match is postponed to a date after October 26, 2021, or canceled altogether, the market will resolve 55-45 in favor of “No”.",
+          "endDate": "2021-09-26T00:00:00Z",
+          "volume": 139186.36,
+          "url": "https://polymarket.com/event/in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "marketSlug": "in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "id": "2892",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        }
+      ],
+      "source": "api",
+      "keyword": "crypto",
+      "cache_type": "subgraph_result",
+      "query_hash": "27905317"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:34:18.014843",
+    "expires_at": "2025-10-08T16:49:18.014843"
+  },
+  "82b60b4248986a36": {
+    "key": "82b60b4248986a36",
+    "prompt": "polymarket::event:politics::16f6a037",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [],
+      "source": "api",
+      "keyword": "politics",
+      "cache_type": "subgraph_result",
+      "query_hash": "16f6a037"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:37:24.103297",
+    "expires_at": "2025-10-08T16:52:24.103297"
+  },
+  "babd7ccc255eb81b": {
+    "key": "babd7ccc255eb81b",
+    "prompt": "polymarket::event:politics::fb8d9a92",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [
+        {
+          "title": "Will Joe Biden get Coronavirus before the election?",
+          "description": "This is a market on if presidential candidate Joe Biden will test positive for COVID-19 before November 3rd, 2020. This will be defined as Joe publicly announcing - via any medium, including social media - that he has tested positive for COVID-19, or some variation of that statement. If it is in reference to antibodies, or he doesn’t publicly acknowledge it, the market will resolve to No.\nIn the event of ambiguity in terms of the market outcome, the market will be resolved at the sole discretion of the Markets Integrity Committee (MIC).",
+          "endDate": "2020-11-04T00:00:00Z",
+          "volume": 32257.445115,
+          "url": "https://polymarket.com/market/will-joe-biden-get-coronavirus-before-the-election",
+          "marketSlug": "will-joe-biden-get-coronavirus-before-the-election",
+          "id": "12",
+          "tags": [],
+          "source": "polymarket"
+        },
+        {
+          "title": "Will a new Supreme Court Justice be confirmed before Nov 3rd, 2020?",
+          "description": "This is a market on whether or not a new Supreme Court Justice will be both nominated and confirmed before Nov 3rd, 2020. Nominated and Confirmed, in the context of the Supreme Court, are defined here: https://en.wikipedia.org/wiki/Appointment_and_confirmation_to_the_Supreme_Court_of_the_United_States. If a Supreme Court Justice is Nominated but not Confirmed before the election, the market will resolve to “No”. RIP RBG. In the event of ambiguity in terms of the market outcome, the market will be resolved at the sole discretion of the Markets Integrity Committee (MIC).",
+          "endDate": "2020-11-04T00:00:00Z",
+          "volume": 43279.456005,
+          "url": "https://polymarket.com/market/will-a-new-supreme-court-justice-be-confirmed-before-nov-3rd-2020",
+          "marketSlug": "will-a-new-supreme-court-justice-be-confirmed-before-nov-3rd-2020",
+          "id": "18",
+          "tags": [],
+          "source": "polymarket"
+        }
+      ],
+      "source": "api",
+      "keyword": "politics",
+      "cache_type": "subgraph_result",
+      "query_hash": "fb8d9a92"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:42:38.871219",
+    "expires_at": "2025-10-08T16:57:38.871219"
+  },
+  "30d17cce39c3bafc": {
+    "key": "30d17cce39c3bafc",
+    "prompt": "polymarket::event:sports::faaaa4ac",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [
+        {
+          "title": "NBA: Will the Mavericks beat the Grizzlies by more than 5.5 points in their December 4 matchup?",
+          "description": "In the upcoming NBA game, scheduled for December 4:\n\nIf the Dallas Mavericks win by over 5.5 points, the market will resolve to “Yes”.\n\nIf the Memphis Grizzlies lose by less than 5.5 points or win, the market will resolve “No.” \n\nIf the game is not completed by December 11, 2021, the market will resolve 50-50.",
+          "endDate": "2021-12-04T00:00:00Z",
+          "volume": 1335.05,
+          "url": "https://polymarket.com/event/nba-will-the-mavericks-beat-the-grizzlies-by-more-than-5pt5-points-in-their-december-4-matchup",
+          "marketSlug": "nba-will-the-mavericks-beat-the-grizzlies-by-more-than-5pt5-points-in-their-december-4-matchup",
+          "id": "2890",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        }
+      ],
+      "source": "api",
+      "keyword": "sports",
+      "cache_type": "subgraph_result",
+      "query_hash": "faaaa4ac"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:39:43.052016",
+    "expires_at": "2025-10-08T16:54:43.052016"
+  },
+  "a1a0200c00da78fe": {
+    "key": "a1a0200c00da78fe",
+    "prompt": "polymarket::event:sports::993bb3c5",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [
+        {
+          "title": "NBA: Will the Mavericks beat the Grizzlies by more than 5.5 points in their December 4 matchup?",
+          "description": "In the upcoming NBA game, scheduled for December 4:\n\nIf the Dallas Mavericks win by over 5.5 points, the market will resolve to “Yes”.\n\nIf the Memphis Grizzlies lose by less than 5.5 points or win, the market will resolve “No.” \n\nIf the game is not completed by December 11, 2021, the market will resolve 50-50.",
+          "endDate": "2021-12-04T00:00:00Z",
+          "volume": 1335.05,
+          "url": "https://polymarket.com/event/nba-will-the-mavericks-beat-the-grizzlies-by-more-than-5pt5-points-in-their-december-4-matchup",
+          "marketSlug": "nba-will-the-mavericks-beat-the-grizzlies-by-more-than-5pt5-points-in-their-december-4-matchup",
+          "id": "2890",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        },
+        {
+          "title": "NFL: Will the Falcons beat the Panthers by more than 3.5 points in their October 31st matchup?",
+          "description": "In the upcoming NFL game:\n\nIf the Atlanta Falcons win by over 3.5 points, the market will resolve to “Yes”.\n\nIf the Carolina Panthers lose by less than 3.5 points or win, the market will resolve “No.” \n\nIf the game is not completed by November 6, 2021, the market will resolve 50-50.",
+          "endDate": "2021-10-31T00:00:00Z",
+          "volume": 5332.42,
+          "url": "https://polymarket.com/event/nfl-will-the-falcons-beat-the-panthers-by-more-than-3pt5-points-in-their-october-31st-matchup",
+          "marketSlug": "nfl-will-the-falcons-beat-the-panthers-by-more-than-3pt5-points-in-their-october-31st-matchup",
+          "id": "2891",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        },
+        {
+          "title": "(In-Game Trading) Will the 49ers beat the Packers by more than 3.5 points in their week three matchup?",
+          "description": "This is a market on whether the San Francisco 49ers will beat the Green Bay Packers by over 3.5 points in their NFL week three matchup scheduled to take place on September 26, 2021, at 8:20 PM ET. This market will resolve to “Yes” if the 49ers win by over 3.5 points, and “No” if the Packers lose by less than 3.5 points or win. If the match is postponed to a date on or before October 26, 2021, the same market conditions will apply. If the match is postponed to a date after October 26, 2021, or canceled altogether, the market will resolve 55-45 in favor of “No”.",
+          "endDate": "2021-09-26T00:00:00Z",
+          "volume": 139186.36,
+          "url": "https://polymarket.com/event/in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "marketSlug": "in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "id": "2892",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        },
+        {
+          "title": "NBA: Will the Heat beat the Wizards by more than 7.5 points in their November 18th matchup?",
+          "description": "In the upcoming NBA game, scheduled for November 18th:\n\nIf the Miami Heat win by over 7.5 points, the market will resolve to “Yes”.\n\nIf the Washington Wizards lose by less than 7.5 points or win, the market will resolve “No.” \n\nIf the game is not completed by November 25, 2021, the market will resolve 50-50.",
+          "endDate": "2021-11-18T00:00:00Z",
+          "volume": 7793.96,
+          "url": "https://polymarket.com/event/nba-will-the-heat-beat-the-wizards-by-more-than-7pt5-points-in-their-november-18th-matchup",
+          "marketSlug": "nba-will-the-heat-beat-the-wizards-by-more-than-7pt5-points-in-their-november-18th-matchup",
+          "id": "2894",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        },
+        {
+          "title": "NFL: Will the Jaguars beat the Texans by more than 3.5 points in their December 19 matchup?",
+          "description": "In the upcoming NFL game, scheduled for December 19:\n\nIf the Jacksonville Jaguars win by over 3.5 points, the market will resolve to “Yes”.\n\nIf the Houston Texans lose by less than 3.5 points or win, the market will resolve “No.” \n\nIf the game is not completed by December 26, 2021, the market will resolve 50-50.",
+          "endDate": "2021-12-19T00:00:00Z",
+          "volume": 1255.63,
+          "url": "https://polymarket.com/event/nfl-will-the-jaguars-beat-the-texans-by-more-than-3pt5-points-in-their-december-19-matchup",
+          "marketSlug": "nfl-will-the-jaguars-beat-the-texans-by-more-than-3pt5-points-in-their-december-19-matchup",
+          "id": "2895",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        }
+      ],
+      "source": "api",
+      "keyword": "sports",
+      "cache_type": "subgraph_result",
+      "query_hash": "993bb3c5"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:40:18.998684",
+    "expires_at": "2025-10-08T16:55:18.998684"
+  },
+  "b96f0943aab8440b": {
+    "key": "b96f0943aab8440b",
+    "prompt": "lunarcrush::gs__5::2025-10-08T11",
+    "lunarcrush_data": {
+      "coins": [
+        {
+          "id": "bitcoin",
+          "symbol": "BTC",
+          "name": "Bitcoin",
+          "title": "Bitcoin",
+          "price": 67234.5,
+          "market_cap": 1325678900000,
+          "percent_change_24h": 2.45,
+          "galaxy_score": 85.2,
+          "alt_rank": 1,
+          "sentiment": "Bullish",
+          "categories": [
+            "Store of Value",
+            "Digital Gold",
+            "Payment"
+          ],
+          "market_dominance": 45.8,
+          "volume_24h": 28450000000,
+          "social_score": 92.1,
+          "developer_score": 88.5,
+          "last_updated": "2025-10-08T16:41:12.306606",
+          "data_source": "demo",
+          "api_tier": "demo_mode"
+        },
+        {
+          "id": "ethereum",
+          "symbol": "ETH",
+          "name": "Ethereum",
+          "title": "Ethereum",
+          "price": 2687.32,
+          "market_cap": 323456789000,
+          "percent_change_24h": 1.87,
+          "galaxy_score": 82.7,
+          "alt_rank": 2,
+          "sentiment": "Bullish",
+          "categories": [
+            "Smart Contracts",
+            "DeFi",
+            "NFT"
+          ],
+          "market_dominance": 18.3,
+          "volume_24h": 15230000000,
+          "social_score": 89.4,
+          "developer_score": 95.2,
+          "last_updated": "2025-10-08T16:41:12.306606",
+          "data_source": "demo",
+          "api_tier": "demo_mode"
+        },
+        {
+          "id": "solana",
+          "symbol": "SOL",
+          "name": "Solana",
+          "title": "Solana",
+          "price": 143.67,
+          "market_cap": 67890123000,
+          "percent_change_24h": 4.23,
+          "galaxy_score": 78.9,
+          "alt_rank": 5,
+          "sentiment": "Bullish",
+          "categories": [
+            "Smart Contracts",
+            "High Performance",
+            "DeFi"
+          ],
+          "market_dominance": 2.1,
+          "volume_24h": 1890000000,
+          "social_score": 84.3,
+          "developer_score": 87.1,
+          "last_updated": "2025-10-08T16:41:12.306606",
+          "data_source": "demo",
+          "api_tier": "demo_mode"
+        },
+        {
+          "id": "binancecoin",
+          "symbol": "BNB",
+          "name": "BNB",
+          "title": "BNB",
+          "price": 586.42,
+          "market_cap": 85234567000,
+          "percent_change_24h": 1.12,
+          "galaxy_score": 76.4,
+          "alt_rank": 4,
+          "sentiment": "Neutral",
+          "categories": [
+            "Exchange Token",
+            "DeFi",
+            "BSC"
+          ],
+          "market_dominance": 2.8,
+          "volume_24h": 1234000000,
+          "social_score": 79.6,
+          "developer_score": 74.3,
+          "last_updated": "2025-10-08T16:41:12.306606",
+          "data_source": "demo",
+          "api_tier": "demo_mode"
+        },
+        {
+          "id": "chainlink",
+          "symbol": "LINK",
+          "name": "Chainlink",
+          "title": "Chainlink",
+          "price": 11.67,
+          "market_cap": 7123456000,
+          "percent_change_24h": 0.89,
+          "galaxy_score": 75.2,
+          "alt_rank": 13,
+          "sentiment": "Neutral",
+          "categories": [
+            "Oracle",
+            "DeFi",
+            "Data"
+          ],
+          "market_dominance": 0.31,
+          "volume_24h": 189000000,
+          "social_score": 73.5,
+          "developer_score": 89.7,
+          "last_updated": "2025-10-08T16:41:12.306606",
+          "data_source": "demo",
+          "api_tier": "demo_mode"
+        }
+      ],
+      "source": "demo",
+      "tier": "fallback",
+      "cache_type": "time_bucketed",
+      "hour_bucket": "2025-10-08T11",
+      "timestamp": "2025-10-08T11:11:10.685773"
+    },
+    "polymarket_data": null,
+    "derived_data": null,
+    "ttl_seconds": 600,
+    "timestamp": "2025-10-08T16:41:12.306606",
+    "expires_at": "2025-10-08T16:51:12.306606"
+  },
+  "5a951ad4ee82b7db": {
+    "key": "5a951ad4ee82b7db",
+    "prompt": "polymarket::event:crypto::3a5c46aa",
+    "lunarcrush_data": null,
+    "polymarket_data": {
+      "events": [
+        {
+          "title": "(In-Game Trading) Will the 49ers beat the Packers by more than 3.5 points in their week three matchup?",
+          "description": "This is a market on whether the San Francisco 49ers will beat the Green Bay Packers by over 3.5 points in their NFL week three matchup scheduled to take place on September 26, 2021, at 8:20 PM ET. This market will resolve to “Yes” if the 49ers win by over 3.5 points, and “No” if the Packers lose by less than 3.5 points or win. If the match is postponed to a date on or before October 26, 2021, the same market conditions will apply. If the match is postponed to a date after October 26, 2021, or canceled altogether, the market will resolve 55-45 in favor of “No”.",
+          "endDate": "2021-09-26T00:00:00Z",
+          "volume": 139186.36,
+          "url": "https://polymarket.com/event/in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "marketSlug": "in-game-trading-will-the-49ers-beat-the-packers-by-more-than-3pt5-points-in-their-week-three-matchup",
+          "id": "2892",
+          "tags": [
+            {
+              "id": "100215",
+              "label": "All",
+              "slug": "all",
+              "forceShow": false,
+              "updatedAt": "2024-05-30T15:49:47.004061Z"
+            }
+          ],
+          "source": "polymarket"
+        }
+      ],
+      "source": "api",
+      "keyword": "crypto",
+      "cache_type": "subgraph_result",
+      "query_hash": "3a5c46aa"
+    },
+    "derived_data": null,
+    "ttl_seconds": 900,
+    "timestamp": "2025-10-08T16:42:39.188827",
+    "expires_at": "2025-10-08T16:57:39.188827"
+  }
+}

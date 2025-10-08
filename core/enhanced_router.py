@@ -82,17 +82,31 @@ class EnhancedMCPRouter(ToolRouter):
         """Simple routing based on query keywords."""
         query_lower = query.lower()
         
-        # Keyword mappings
-        if any(word in query_lower for word in ["coins", "crypto", "bitcoin", "ethereum", "sentiment"]):
-            tool = self.get_tool("get_coins_list")
+        # Check for explicit tool mentions first (highest priority)
+        if "polymarket" in query_lower:
+            tool = self.get_tool("get_events")
             if tool:
-                logger.info("🪙 Routing to LunarCrush coins tool")
+                logger.info("📊 Routing to Polymarket events tool (explicit mention)")
                 return tool
         
-        if any(word in query_lower for word in ["events", "market", "prediction", "polymarket"]):
+        if "lunarcrush" in query_lower:
+            tool = self.get_tool("get_coins_list")
+            if tool:
+                logger.info("🪙 Routing to LunarCrush coins tool (explicit mention)")
+                return tool
+        
+        # For event-related queries, prioritize Polymarket
+        if any(word in query_lower for word in ["events", "market", "prediction", "sports", "politics"]):
             tool = self.get_tool("get_events")
             if tool:
                 logger.info("📊 Routing to Polymarket events tool")
+                return tool
+        
+        # Keyword mappings for crypto data (price, sentiment analysis)
+        if any(word in query_lower for word in ["coins", "price", "sentiment", "galaxy"]) and not any(word in query_lower for word in ["events", "market", "prediction"]):
+            tool = self.get_tool("get_coins_list")
+            if tool:
+                logger.info("🪙 Routing to LunarCrush coins tool")
                 return tool
         
         # Default to first available tool

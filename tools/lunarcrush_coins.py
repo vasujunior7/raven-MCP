@@ -378,6 +378,7 @@ class LunarCrushCoins:
                 "id": "bitcoin",
                 "symbol": "BTC",
                 "name": "Bitcoin",
+                "title": "Bitcoin",  # Add title for display
                 "price": 67234.50,
                 "market_cap": 1325678900000,
                 "percent_change_24h": 2.45,
@@ -394,6 +395,7 @@ class LunarCrushCoins:
                 "id": "ethereum",
                 "symbol": "ETH",
                 "name": "Ethereum",
+                "title": "Ethereum",  # Add title for display
                 "price": 2687.32,
                 "market_cap": 323456789000,
                 "percent_change_24h": 1.87,
@@ -410,6 +412,7 @@ class LunarCrushCoins:
                 "id": "cardano",
                 "symbol": "ADA",
                 "name": "Cardano",
+                "title": "Cardano",  # Add title for display
                 "price": 0.372,
                 "market_cap": 13127000000,
                 "percent_change_24h": -0.85,
@@ -426,6 +429,7 @@ class LunarCrushCoins:
                 "id": "solana",
                 "symbol": "SOL",
                 "name": "Solana",
+                "title": "Solana",  # Add title for display
                 "price": 143.67,
                 "market_cap": 67890123000,
                 "percent_change_24h": 4.23,
@@ -442,6 +446,7 @@ class LunarCrushCoins:
                 "id": "binancecoin",
                 "symbol": "BNB",
                 "name": "BNB",
+                "title": "BNB",  # Add title for display
                 "price": 586.42,
                 "market_cap": 85234567000,
                 "percent_change_24h": 1.12,
@@ -458,6 +463,7 @@ class LunarCrushCoins:
                 "id": "ripple",
                 "symbol": "XRP",
                 "name": "XRP",
+                "title": "XRP",  # Add title for display
                 "price": 0.5234,
                 "market_cap": 29876543000,
                 "percent_change_24h": -1.45,
@@ -474,6 +480,7 @@ class LunarCrushCoins:
                 "id": "dogecoin",
                 "symbol": "DOGE",
                 "name": "Dogecoin",
+                "title": "Dogecoin",  # Add title for display
                 "price": 0.1234,
                 "market_cap": 17654321000,
                 "percent_change_24h": 8.76,
@@ -490,6 +497,7 @@ class LunarCrushCoins:
                 "id": "avalanche",
                 "symbol": "AVAX",
                 "name": "Avalanche",
+                "title": "Avalanche",  # Add title for display
                 "price": 27.89,
                 "market_cap": 11234567000,
                 "percent_change_24h": 2.34,
@@ -506,6 +514,7 @@ class LunarCrushCoins:
                 "id": "chainlink",
                 "symbol": "LINK",
                 "name": "Chainlink",
+                "title": "Chainlink",  # Add title for display
                 "price": 11.67,
                 "market_cap": 7123456000,
                 "percent_change_24h": 0.89,
@@ -522,6 +531,7 @@ class LunarCrushCoins:
                 "id": "polygon",
                 "symbol": "MATIC",
                 "name": "Polygon",
+                "title": "Polygon",  # Add title for display
                 "price": 0.4567,
                 "market_cap": 4567890000,
                 "percent_change_24h": -2.11,

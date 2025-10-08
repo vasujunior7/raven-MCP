@@ -1,0 +1,31 @@
+{
+  "name": "raven-mcp",
+  "version": "1.0.0",
+  "description": "Raven MCP Server - Natural language interface for Polymarket and crypto data",
+  "main": "mcp_server.py", 
+  "scripts": {
+    "start": "python mcp_server.py",
+    "test": "python client/cli.py",
+    "test-parser": "python test_parser_improvements.py"
+  },
+  "keywords": [
+    "mcp",
+    "polymarket",
+    "crypto",
+    "prediction-markets",
+    "natural-language"
+  ],
+  "author": "vasujunior7",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vasujunior7/raven-MCP.git"
+  },
+  "mcp": {
+    "server": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "env": {}
+    }
+  }
+}

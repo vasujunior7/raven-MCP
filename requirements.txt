@@ -6,6 +6,10 @@ aiohttp>=3.8.0
 pyyaml>=6.0
 python-dateutil>=2.8.0
 
+# Fuzzy string matching for better natural language parsing
+fuzzywuzzy>=0.18.0
+python-levenshtein>=0.12.0
+
 # LLM Integration
 openai>=1.0.0
 python-dotenv>=1.0.0
